@@ -3,7 +3,7 @@ clu==0.0.9
 flax==0.7.4
 -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-jax[cuda11_pip]
+jax[cuda11_pip]==0.4.23
 ml-collections==0.1.1
 numpy==1.26.0
 optax==0.1.7
