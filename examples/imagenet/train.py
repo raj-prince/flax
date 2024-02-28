@@ -43,7 +43,7 @@ import tensorflow_datasets as tfds
 import input_pipeline
 import models
 import resource
-
+import os
 
 NUM_CLASSES = 1000
 
@@ -293,6 +293,8 @@ def train_and_evaluate(
 
   image_size = 224
 
+  logging.info('######### CONFIG BATCH SIZE  ########### :  %d', config.batch_size)
+  logging.info('######### CONFIG CACHE  ########### :  %s', config.cache)
   if config.batch_size % jax.device_count() > 0:
     raise ValueError('Batch size must be divisible by the number of devices')
   local_batch_size = config.batch_size // jax.process_count()
@@ -418,6 +420,7 @@ def train_and_evaluate(
         eval_metrics.append(metrics)
       eval_metrics = common_utils.get_metrics(eval_metrics)
       summary = jax.tree_util.tree_map(lambda x: x.mean(), eval_metrics)
+      os.system("sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'")
       logging.info(
           'eval epoch: %d, loss: %.4f, accuracy: %.2f',
           epoch,
