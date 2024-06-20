@@ -1,11 +1,11 @@
-absl-py==1.0.0
-clu==0.0.6
-flax==0.6.5
+absl-py==1.4.0
+clu==0.0.9
+flax==0.7.4
 -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-jax[cuda11_cudnn805]>=0.3.16  # change to jax[tpu] if running on tpus
-ml-collections==0.1.0
-numpy==1.22.0
-optax==0.1.3
+jax[cuda11_pip]==0.4.23
+ml-collections==0.1.1
+numpy==1.26.0
+optax==0.1.7
 tensorflow==2.11.1
 tensorflow-datasets==4.4.0

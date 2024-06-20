@@ -24,7 +24,7 @@ def get_config():
 
   config.batch_size = 512
   config.shuffle_buffer_size = 16 * 512
-  config.cache = True
+  config.cache = False
 
   return config
 
